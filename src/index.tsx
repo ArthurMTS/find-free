@@ -1,13 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+
+import { Home } from './features/Home';
+
 import reportWebVitals from './reportWebVitals';
 
 import './_assets/css/global.scss';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Home />
   </React.StrictMode>,
   document.getElementById('root')
 );
