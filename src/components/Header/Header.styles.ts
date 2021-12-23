@@ -7,6 +7,10 @@ export const useStyles = makeStyles({
     display: 'flex',
     alignItems: 'center',
     gap: '10px',
+    position: 'absolute',
+    top: '0',
+    left: '0',
+    width: '100%',
   },
   icon: {
     fontSize: '5ch',
