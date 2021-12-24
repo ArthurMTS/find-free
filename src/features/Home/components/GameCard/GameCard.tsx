@@ -3,7 +3,6 @@ import {
   Card,
   CardActionArea,
   CardContent,
-  CardActions,
   Typography,
   Button
 } from '@material-ui/core';
@@ -35,8 +34,8 @@ export const GameCard = ({ info }: GameCardProps) => {
         </CardContent>
       </CardActionArea>
 
-      <CardActions className={styles.lowerBar}>
-        <Box className={styles.box}>
+      <Box className={styles.lowerBar}>
+        <Box>
           <Typography className={styles.smallerText}>
             {info.genre}
           </Typography>
@@ -53,14 +52,15 @@ export const GameCard = ({ info }: GameCardProps) => {
         >
           <Button 
             className={styles.button}
-            variant='outlined'
+            variant='contained'
+            color='primary'
             size='small'
             endIcon={<ChevronRight />}
           >
             Game
           </Button>
         </a>
-      </CardActions>
+      </Box>
     </Card>
   );
 }

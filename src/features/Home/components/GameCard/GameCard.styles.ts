@@ -6,6 +6,9 @@ export const useStyles = makeStyles({
     margin: '10px 0',
     color: '#eee',
     width: '35vw',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
   },
   thumbnail: {
     width: '100%',
@@ -19,19 +22,16 @@ export const useStyles = makeStyles({
   description: {
     textAlign: 'justify',
   },
-  box: {
-    
-  },
   lowerBar: {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: '10px',
+    padding: '10px 15px',
   },
   smallerText: {
     fontSize: '14px',
     fontStyle: 'italic',
-    color: '#dedede'
+    color: '#dedede',
   },
   anchor: {
     textDecoration: 'none',
@@ -40,9 +40,8 @@ export const useStyles = makeStyles({
     color: '#eee',
     borderColor: '#eee',
     transition: 'all 0.2s',
-    '&:hover': {
-      color: '#75b5fd',
-      borderColor: '#75b5fd',
-    }
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
   }
 });
