@@ -5,7 +5,7 @@ export const useStyles = makeStyles({
     backgroundColor: '#2A2E33',
     margin: '10px 0',
     color: '#eee',
-    width: '35vw',
+    width: '25vw',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',

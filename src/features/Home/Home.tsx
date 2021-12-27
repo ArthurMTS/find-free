@@ -3,7 +3,7 @@ import { Box } from '@material-ui/core';
 
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
-import { GameCard } from './components/GameCard';
+import { GamesList } from './components/GamesList';
 
 import { api } from '../../_config/api';
 
@@ -28,12 +28,7 @@ export const Home = () => {
     <React.Fragment>
       <Header />
       <Box component='main' className={styles.main}>
-        <h2>List of games</h2>
-        <ul>
-          {
-            games.map(game => <GameCard info={game} />)
-          }
-        </ul>
+        <GamesList games={games} />
       </Box>
       <Footer />
     </React.Fragment>
