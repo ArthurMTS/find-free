@@ -1,4 +1,5 @@
-import { Box } from '@material-ui/core';
+import React from 'react';
+import { Box, CircularProgress } from '@material-ui/core';
 
 import { GameCard } from '../GameCard';
 
@@ -25,12 +26,19 @@ export const GamesList = ({ games }: GamesListProps) => {
   const styles = useStyles();
 
   return (
-    <Box className={styles.grid} component='section'>
+    <React.Fragment>
       {
-        games.map(game => (
-          <GameCard key={game.id} info={game} />
-        ))
+        games.length > 0 ?
+          <Box className={styles.grid} component='section'>
+            { 
+              games.map(game => (
+                <GameCard key={game.id} info={game} />
+              ))
+            }
+          </Box>
+        :
+          <CircularProgress className={styles.loading} />
       }
-    </Box>
+    </React.Fragment>
   );
 }

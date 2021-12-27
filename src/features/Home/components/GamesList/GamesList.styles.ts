@@ -7,4 +7,8 @@ export const useStyles = makeStyles({
     margin: '10px auto 0',
     gap: '0 20px',
   },
+  loading: {
+    position: 'absolute',
+    top: '50vh',
+  },
 });
