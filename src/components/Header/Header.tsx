@@ -7,7 +7,7 @@ export const Header = () => {
   const styles = useStyles();
 
   return (
-    <Box component='header' className={styles.header}>
+    <Box id='header' component='header' className={styles.header}>
       <SportsEsports className={styles.icon} />
       <h1 className={styles.title}>Find Free</h1>
     </Box>

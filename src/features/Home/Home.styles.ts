@@ -8,4 +8,16 @@ export const useStyles = makeStyles({
     flexDirection: 'column',
     alignItems: 'center',
   },
+  goToStart: {
+    position: 'fixed',
+    bottom: '80px',
+    right: '20px',
+  },
+  link: {
+    textDecoration: 'none',
+    color: '#fff',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 });

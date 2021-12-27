@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Box } from '@material-ui/core';
+import { Box, Fab, Link } from '@material-ui/core';
+import { KeyboardArrowUp } from '@material-ui/icons';
 
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
@@ -29,6 +30,12 @@ export const Home = () => {
       <Header />
       <Box component='main' className={styles.main}>
         <GamesList games={games} />
+
+        <Fab color='primary' className={styles.goToStart}>
+          <Link href='#header' className={styles.link}>
+            <KeyboardArrowUp />
+          </Link>
+        </Fab>
       </Box>
       <Footer />
     </React.Fragment>
