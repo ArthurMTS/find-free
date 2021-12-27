@@ -19,7 +19,7 @@ export const FilterBar = () => {
         select
       >
         {
-          genres.map(genre => <MenuItem value={genre}>{genre}</MenuItem>)
+          genres.map((genre, index) => <MenuItem key={index} value={genre}>{genre}</MenuItem>)
         }
       </TextField>
 
