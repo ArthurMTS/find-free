@@ -5,6 +5,7 @@ import { KeyboardArrowUp } from '@material-ui/icons';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
 import { GamesList } from './components/GamesList';
+import { FilterBar } from './components/FilterBar';
 
 import { api } from '../../_config/api';
 
@@ -28,7 +29,10 @@ export const Home = () => {
   return (
     <React.Fragment>
       <Header />
+      
       <Box component='main' className={styles.main}>
+        <FilterBar />
+
         <GamesList games={games} />
 
         <Link href='#header' className={styles.link}>
@@ -37,6 +41,7 @@ export const Home = () => {
           </Fab>
         </Link>
       </Box>
+
       <Footer />
     </React.Fragment>
   );
