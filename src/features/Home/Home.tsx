@@ -31,11 +31,11 @@ export const Home = () => {
       <Box component='main' className={styles.main}>
         <GamesList games={games} />
 
-        <Fab color='primary' className={styles.goToStart}>
-          <Link href='#header' className={styles.link}>
+        <Link href='#header' className={styles.link}>
+          <Fab color='primary' className={styles.goToStart}>
             <KeyboardArrowUp />
-          </Link>
-        </Fab>
+          </Fab>
+        </Link>
       </Box>
       <Footer />
     </React.Fragment>
