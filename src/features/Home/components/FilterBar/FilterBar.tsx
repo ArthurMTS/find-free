@@ -1,21 +1,98 @@
+import { useState, ChangeEvent, FormEvent } from 'react';
 import { Box, TextField, MenuItem, Button } from '@material-ui/core';
+import { Search } from '@material-ui/icons';
 
 import { useStyles } from './FilterBar.styles';
 
-const genres = ['All', 'MMO', 'MMORPG', 'Shooter', 'Strategy', 'MOBA', 'Card Game', 'Racing', 'Sports', 'Social', 'Fighting', 'Action RPG', 'Sandbox', 'Battle Royale', 'Anime', 'Fantasy', 'Sci-Fi', 'Action', 'Zombie', 'Superhero'];
+import { FilterBarProps } from './types';
 
-export const FilterBar = () => {
+const genres = ['All', 'MMO', 'MMORPG', 'Shooter', 'Strategy', 'MOBA', 'Card Game', 'Racing', 'Sports', 'Social', 'Fighting', 'Action RPG', 'Battle Royale', 'Fantasy'];
+
+const sortOptions = ['None', 'Name - AZ', 'Name - ZA', 'Release - Oldest', 'Release - Newer'];
+
+
+export const FilterBar = ({ games, handler }: FilterBarProps) => {
+  const [search, setSearch] = useState('');
+  const [genre, setGenre] = useState('All');
+  const [sort, setSort] = useState('None');
+
   const styles = useStyles();
+
+  const handleChangeSearch = (event: ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+
+    setSearch(value);
+  }
+
+  const handleChangeGenre = (event: ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+
+    setGenre(value);
+    setSearch('');
+
+    if (value === 'All') {
+      handler(games);
+      return;
+    }
+
+    const filteredGames = games.filter(game => game.genre.toLowerCase() === value.toLowerCase());
+
+    handler(filteredGames);
+  }
+
+  const handleChangeSort = (event: ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+
+    setSort(value);
+  }
+
+  const handleSubmit = (event: FormEvent) => {
+    event.preventDefault();
+
+    setGenre('All');
+
+    if (search === '') {
+      handler(games);
+      return;
+    }
+
+    const filteredGames = games.filter(({ title }) => title.toLowerCase().includes(search.toLowerCase()));
+
+    handler(filteredGames);
+  }
+
+  const handleClean = () => {
+    setSearch('');
+    setSort('None');
+    setGenre('All');
+    handler(games);
+  }
 
   return (
     <Box component='section' className={styles.filterBar}>
-      <TextField variant='outlined' label='Search' />
+      <form onSubmit={handleSubmit} className={styles.filterBar}>
+        <TextField
+          variant='outlined' 
+          label='Search'
+          value={search}
+          onChange={handleChangeSearch}
+        />
+
+        <Button
+          variant='contained'
+          color='primary'
+          type='submit'
+        >
+          <Search />
+        </Button>
+      </form>
 
       <TextField
         id='genre'
         label='Genre'
         variant='outlined'
-        value='All'
+        value={genre}
+        onChange={handleChangeGenre}
         select
       >
         {
@@ -27,15 +104,22 @@ export const FilterBar = () => {
         id='sort'
         label='Sort'
         variant='outlined'
-        value='None'
+        value={sort}
+        onChange={handleChangeSort}
         select
       >
-        <MenuItem value='None'>None</MenuItem>
-        <MenuItem value='Name'>Name</MenuItem>
-        <MenuItem value='Release'>Release</MenuItem>
+        {
+          sortOptions.map((option, index) => <MenuItem key={index} value={option}>{option}</MenuItem>)
+        }
       </TextField>
 
-      <Button color='primary' variant='contained'>Clean</Button>
+      <Button
+        color='primary' 
+        variant='contained'
+        onClick={handleClean}
+      >
+        Clean
+      </Button>
     </Box>
   );
 }

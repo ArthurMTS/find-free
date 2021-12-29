@@ -11,29 +11,36 @@ import { api } from '../../_config/api';
 
 import { useStyles } from './Home.styles';
 
+import { Game } from './types';
+
 export const Home = () => {
-  const [games, setGames] = useState([]);
+  const [games, setGames] = useState<Game[]>([]);
+  const [displayGames, setDisplayGames] = useState<Game[]>([]);
+
+  const styles = useStyles();
 
   useEffect(() => {
     const handleRequest = async () => {
       const result = await api.get('games');
 
       setGames(result.data);
+      setDisplayGames(result.data);
     }
 
     handleRequest();
   }, []);
-
-  const styles = useStyles();
 
   return (
     <React.Fragment>
       <Header />
       
       <Box component='main' className={styles.main}>
-        <FilterBar />
+        <FilterBar
+          games={games}
+          handler={setDisplayGames}
+        />
 
-        <GamesList games={games} />
+        <GamesList games={displayGames} />
 
         <Link href='#header' className={styles.link}>
           <Fab color='primary' className={styles.goToStart}>
