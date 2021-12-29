@@ -10,6 +10,10 @@ export const useStyles = makeStyles({
     flexDirection: 'column',
     justifyContent: 'space-between',
   },
+  link: {
+    textDecoration: 'none',
+    color: '#eee',
+  },
   thumbnail: {
     width: '100%',
   },

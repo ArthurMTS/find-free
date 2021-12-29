@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { 
   Box,
   Card,
@@ -18,22 +19,24 @@ export const GameCard = ({ info }: GameCardProps) => {
 
   return (
     <Card className={styles.card}>
-      <CardActionArea>
-        <img
-          className={styles.thumbnail}
-          src={info.thumbnail} 
-          alt={info.title}
-        />
-        <CardContent>
-          <Typography className={styles.title}>
-            {info.title}
-          </Typography>
+      <Link to={`game/${info.id}`} className={styles.link}>
+        <CardActionArea>
+          <img
+            className={styles.thumbnail}
+            src={info.thumbnail} 
+            alt={info.title}
+          />
+          <CardContent>
+            <Typography className={styles.title}>
+              {info.title}
+            </Typography>
 
-          <Typography className={styles.description}>
-            {info.short_description}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
+            <Typography className={styles.description}>
+              {info.short_description}
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+      </Link>
 
       <CardActions className={styles.lowerBar}>
         <Box>
