@@ -13,8 +13,8 @@ export const RequirementsTable = ({ requirements }: RequirementsTableProps) => {
     <TableContainer component={Paper}>
       <Table aria-label='simple table'>
         <TableBody>
-          {data.map(element => 
-            <TableRow>
+          {data.map((element, index) => 
+            <TableRow key={index}>
               <TableCell className={styles.cell} component='th'>
                 {element.label}
               </TableCell>

@@ -25,7 +25,6 @@ export const Game = () => {
       const result = await api.get<GameData>(`game?id=${id}`);
 
       setGame(result.data);
-      console.log(result.data);
     }
 
     handleRequest();
@@ -53,7 +52,7 @@ export const Game = () => {
 
           <p><strong>Developer:</strong> {game?.developer}</p>
 
-          <p className={styles.release}>Release: {game?.release_date}</p>
+          <p className={styles.release}>Release: {game?.release_date.split('-').reverse().join('/')}</p>
 
           <p className={styles.description}>{game?.description}</p>
 
@@ -63,7 +62,10 @@ export const Game = () => {
 
           <h3 className={styles.subTitle}>Screenshots</h3>
 
-          <Screenshots images={game?.screenshots} />
+          <Screenshots
+            title={game?.title}
+            images={game?.screenshots}
+          />
         </Box>
       </Box>
       <Footer />

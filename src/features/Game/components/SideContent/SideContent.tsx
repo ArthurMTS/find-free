@@ -23,6 +23,7 @@ export const SideContent = ({ thumbnail, title, status, gameURL }: SideContentPr
           target='_blank'
         >
           <Button
+          className={styles.wideButton}
           variant='contained' color='primary'>Play Now</Button>
         </Link>
       </Box>

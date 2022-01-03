@@ -5,7 +5,12 @@ export const useStyles = makeStyles({
     display: 'flex',
     justifyContent: 'space-between',
     marginTop: '10px',
-  },live: {
+  },
+  wideButton: {
+    padding: '5px 100px',
+    textDecoration: 'none',
+  },
+  live: {
     backgroundColor: '#1aed40',
     color: '#fff',
     '&:hover': {
