@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { Box } from '@material-ui/core';
+import { ChevronLeft } from '@material-ui/icons';
 
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
@@ -33,6 +34,11 @@ export const Game = () => {
   return (
     <React.Fragment>
       <Header />
+
+      <Link to='/' className={styles.returnHome}>
+        <ChevronLeft fontSize='large' />
+      </Link>
+
       <Box component='main' className={styles.main}>
         <SideContent
           title={game?.title}

@@ -8,6 +8,17 @@ export const useStyles = makeStyles({
     backgroundColor: '#2A2E33',
     gap: '20px',
   },
+  returnHome: {
+    position: 'absolute',
+    top: '80px',
+    left: '20px',
+    textDecoration: 'none',
+    color: '#fff',
+    transition: 'all 0.2s',
+    '&:hover': {
+      transform: 'scale(1.2)',
+    },
+  },
   content: {
     color: '#fff',
   },
