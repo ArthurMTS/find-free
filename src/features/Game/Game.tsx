@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Box, Button, Link, Typography } from '@material-ui/core';
+import { Box } from '@material-ui/core';
 
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
 import { RequirementsTable } from './components/RequirementsTable';
 import { Screenshots } from './components/Screenshots';
+import { SideContent } from './components/SideContent';
 
 import { api } from '../../_config/api';
 
@@ -34,21 +35,12 @@ export const Game = () => {
     <React.Fragment>
       <Header />
       <Box component='main' className={styles.main}>
-        <Box component='aside'>
-          <img src={game?.thumbnail} alt={game?.title} />
-
-          <Box className={styles.buttonGroup}>
-            <Button className={game?.status === 'Live' ? styles.live : styles.down } variant='contained'>
-              <Typography>
-                {game?.status}
-              </Typography>
-            </Button>
-
-            <Link href={game?.game_url} target='_blank'>
-              <Button variant='contained' color='primary'>Play Now</Button>
-            </Link>
-          </Box>
-        </Box>
+        <SideContent
+          title={game?.title}
+          thumbnail={game?.thumbnail}
+          status={game?.status}
+          gameURL={game?.game_url}
+        />
 
         <Box component='section' className={styles.content}>
           <h2 className={styles.title}>{game?.title}</h2>

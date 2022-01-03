@@ -8,25 +8,6 @@ export const useStyles = makeStyles({
     backgroundColor: '#2A2E33',
     gap: '20px',
   },
-  buttonGroup: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    marginTop: '10px',
-  },
-  live: {
-    backgroundColor: '#1aed40',
-    color: '#fff',
-    '&:hover': {
-      backgroundColor: '#1aed40',
-    },
-  },
-  down: {
-    backgroundColor: '#ed1730',
-    color: '#fff',
-    '&:hover': {
-      backgroundColor: '#ed1730',
-    },
-  },
   content: {
     color: '#fff',
   },
