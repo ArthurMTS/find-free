@@ -6,7 +6,7 @@ export const useStyles = makeStyles({
     padding: '80px 15vw 20px',
     display: 'flex',
     backgroundColor: '#2A2E33',
-    gap: '10px',
+    gap: '20px',
   },
   buttonGroup: {
     display: 'flex',
@@ -33,6 +33,10 @@ export const useStyles = makeStyles({
   title: {
     margin: '20px 0 10px',
   },
+  subTitle: {
+    fontSize: '20px',
+    margin: '20px 0',
+  },
   genre: {
     marginBottom: '60px',
     color: '#e7e7e7',
@@ -48,8 +52,5 @@ export const useStyles = makeStyles({
     textAlign: 'justify',
     textIndent: '50px',
     fontSize: '18px',
-  },
-  screenshot: {
-    width: '200px',
   },
 });

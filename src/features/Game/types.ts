@@ -1,6 +1,6 @@
-type Photo = {
+export type Photo = {
   id: number;
-    image: string;
+  image: string;
 }
 
 export type GameData = {
@@ -21,5 +21,5 @@ export type GameData = {
     graphics: string;
     storage: string;
   }
-  screenshots: Photo[]
+  screenshots: Photo[];
 }

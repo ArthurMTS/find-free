@@ -5,6 +5,7 @@ import { Box, Button, Link, Typography } from '@material-ui/core';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
 import { RequirementsTable } from './components/RequirementsTable';
+import { Screenshots } from './components/Screenshots';
 
 import { api } from '../../_config/api';
 
@@ -64,15 +65,13 @@ export const Game = () => {
 
           <p className={styles.description}>{game?.description}</p>
 
-          <h3>Requirements</h3>
+          <h3 className={styles.subTitle}>Requirements</h3>
 
           <RequirementsTable requirements={game?.minimum_system_requirements} />
 
-          <Box>
-            {
-              game?.screenshots.map(shot => <img className={styles.screenshot} key={shot.id} src={shot.image} />)
-            }
-          </Box>
+          <h3 className={styles.subTitle}>Screenshots</h3>
+
+          <Screenshots images={game?.screenshots} />
         </Box>
       </Box>
       <Footer />
