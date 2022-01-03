@@ -1,7 +1,8 @@
 import React from 'react';
-import { Box, CircularProgress } from '@material-ui/core';
+import { Box } from '@material-ui/core';
 
 import { GameCard } from '../GameCard';
+import { Loading } from '../../../../components/Loading';
 
 import { useStyles } from './GamesList.styles';
 
@@ -22,7 +23,7 @@ export const GamesList = ({ games }: GamesListProps) => {
             }
           </Box>
         :
-          <CircularProgress className={styles.loading} />
+          <Loading />
       }
     </React.Fragment>
   );
