@@ -49,10 +49,6 @@ export const useStyles = makeStyles({
     textIndent: '50px',
     fontSize: '18px',
   },
-  cell: {
-    backgroundColor: '#424242',
-    color: '#fff',
-  },
   screenshot: {
     width: '200px',
   },

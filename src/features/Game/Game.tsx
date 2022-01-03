@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Box, Button, Link, Typography, TableContainer, Table, TableRow, TableBody, TableCell, Paper } from '@material-ui/core';
+import { Box, Button, Link, Typography } from '@material-ui/core';
 
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
+import { RequirementsTable } from './components/RequirementsTable';
 
 import { api } from '../../_config/api';
 
@@ -59,58 +60,13 @@ export const Game = () => {
 
           <p><strong>Developer:</strong> {game?.developer}</p>
 
-          <p className={styles.release}>{game?.release_date}</p>
+          <p className={styles.release}>Release: {game?.release_date}</p>
 
           <p className={styles.description}>{game?.description}</p>
 
           <h3>Requirements</h3>
 
-          <TableContainer component={Paper}>
-            <Table aria-label='simple table'>
-              <TableBody>
-               <TableRow>
-                  <TableCell component='th' className={styles.cell}>
-                    System
-                  </TableCell>
-                  <TableCell className={styles.cell}>
-                    {game?.minimum_system_requirements.os}
-                  </TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell className={styles.cell}component='th'>
-                    Processor
-                  </TableCell>
-                  <TableCell className={styles.cell}>
-                    {game?.minimum_system_requirements.processor}
-                  </TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell component='th' className={styles.cell}>
-                    Memory  
-                  </TableCell>
-                  <TableCell className={styles.cell}>
-                    {game?.minimum_system_requirements.memory}
-                  </TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell component='th' className={styles.cell}>
-                    Graphics  
-                  </TableCell>
-                  <TableCell className={styles.cell}>
-                    {game?.minimum_system_requirements.graphics}
-                  </TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell component='th' className={styles.cell}>
-                    Storage  
-                  </TableCell>
-                  <TableCell className={styles.cell}>
-                    {game?.minimum_system_requirements.storage}
-                  </TableCell>
-                </TableRow>
-              </TableBody>
-            </Table>
-          </TableContainer>
+          <RequirementsTable requirements={game?.minimum_system_requirements} />
 
           <Box>
             {
