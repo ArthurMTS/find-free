@@ -8,13 +8,9 @@ import { FilterBarProps } from './types';
 
 const genres = ['All', 'MMO', 'MMORPG', 'Shooter', 'Strategy', 'MOBA', 'Card Game', 'Racing', 'Sports', 'Social', 'Fighting', 'Action RPG', 'Battle Royale', 'Fantasy'];
 
-const sortOptions = ['None', 'Name - AZ', 'Name - ZA', 'Release - Oldest', 'Release - Newer'];
-
-
 export const FilterBar = ({ games, handler }: FilterBarProps) => {
   const [search, setSearch] = useState('');
   const [genre, setGenre] = useState('All');
-  const [sort, setSort] = useState('None');
 
   const styles = useStyles();
 
@@ -40,12 +36,6 @@ export const FilterBar = ({ games, handler }: FilterBarProps) => {
     handler(filteredGames);
   }
 
-  const handleChangeSort = (event: ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
-
-    setSort(value);
-  }
-
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
 
@@ -63,7 +53,6 @@ export const FilterBar = ({ games, handler }: FilterBarProps) => {
 
   const handleClean = () => {
     setSearch('');
-    setSort('None');
     setGenre('All');
     handler(games);
   }
@@ -97,19 +86,6 @@ export const FilterBar = ({ games, handler }: FilterBarProps) => {
       >
         {
           genres.map((genre, index) => <MenuItem key={index} value={genre}>{genre}</MenuItem>)
-        }
-      </TextField>
-
-      <TextField
-        id='sort'
-        label='Sort'
-        variant='outlined'
-        value={sort}
-        onChange={handleChangeSort}
-        select
-      >
-        {
-          sortOptions.map((option, index) => <MenuItem key={index} value={option}>{option}</MenuItem>)
         }
       </TextField>
 
