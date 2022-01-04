@@ -1,11 +1,17 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 export const useStyles = makeStyles({
+  root: {
+    backgroundColor: '#2A2E33',
+    minHeight: '93vh',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   main: {
-    minHeight: '100vh',
     padding: '80px 15vw 20px',
     display: 'flex',
-    backgroundColor: '#2A2E33',
     gap: '20px',
   },
   returnHome: {

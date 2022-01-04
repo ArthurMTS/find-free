@@ -8,6 +8,7 @@ import { Footer } from '../../components/Footer';
 import { RequirementsTable } from './components/RequirementsTable';
 import { Screenshots } from './components/Screenshots';
 import { SideContent } from './components/SideContent';
+import { Loading } from '../../components/Loading';
 
 import { api } from '../../_config/api';
 
@@ -39,15 +40,18 @@ export const Game = () => {
         <ChevronLeft fontSize='large' />
       </Link>
 
-      <Box component='main' className={styles.main}>
-        <SideContent
-          title={game?.title}
-          thumbnail={game?.thumbnail}
-          status={game?.status}
-          gameURL={game?.game_url}
-        />
+      <Box className={styles.root}>
+      {
+        game ? 
+        <Box component='main' className={styles.main}>
+          <SideContent
+            title={game?.title}
+            thumbnail={game?.thumbnail}
+            status={game?.status}
+            gameURL={game?.game_url}
+          />
 
-        <Box component='section' className={styles.content}>
+          <Box component='section' className={styles.content}>
           <h2 className={styles.title}>{game?.title}</h2>
           <Box className={styles.genre}>
             <span>{game?.genre}</span>
@@ -72,8 +76,12 @@ export const Game = () => {
             title={game?.title}
             images={game?.screenshots}
           />
-        </Box>
+          </Box>
+        </Box> :
+        <Loading />
+      }
       </Box>
+
       <Footer />
     </React.Fragment>
   );

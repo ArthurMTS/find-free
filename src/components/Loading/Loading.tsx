@@ -6,6 +6,6 @@ export const Loading = () => {
   const styles = useStyles();
 
   return (
-  <CircularProgress className={styles.root} />
+    <CircularProgress className={styles.root} />
   );
 }
